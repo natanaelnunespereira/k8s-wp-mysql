@@ -5,7 +5,7 @@ Documentação referente a aplicação das tecnologias WordPress e MySQL utiliza
 - [Kubernetes](https://kubernetes.io/docs/home/)
 
 ## Pré-requisitos
-- [Docker Desktop](https://docs.docker.com/get-docker/)
+- Possuir o [Docker Desktop](https://docs.docker.com/get-docker/) instalado.
 
 ## Etapas da aplicação
 
