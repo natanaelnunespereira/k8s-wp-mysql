@@ -17,3 +17,15 @@ O estágio anterior pode ser substituído pelo comando abaixo.
 ```sh
 kubectl create namespace labwordpress
 ```
+Listar *namespaces*.
+```sh
+kubectl get namespace
+```
+Aplicar arquivo de criação do *service*.
+```sh
+kubectl apply -f mysql-service.yml
+```
+Listar *services* do *namespace* **labwordpress**.
+```sh
+kubectl get service -n labwordpress
+```
