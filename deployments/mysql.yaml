@@ -1,1 +1,11 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: labwordpress
+spec:
+  selector:
+    
+  template:
+    
+  replicas: 1

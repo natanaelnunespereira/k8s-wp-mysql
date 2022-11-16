@@ -1,1 +1,11 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  namespace: labwordpress
+spec:
+  selector:
+    
+  template:
+    
+  replicas: 1
