@@ -32,3 +32,24 @@ Listar *services* do *namespace* **labwordpress**.
 ```sh
 kubectl get service -n labwordpress
 ```
+Modelo do arquivo secret.yaml.
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  namespace: labwordpress
+type: Opaque
+data:
+  mysql_root_password: <root-password>
+  mysql_user: <user>
+  mysql_password: <user-password>
+```
+Aplicar arquivo *secret*.
+```sh
+kubectl apply -f secret.yaml
+```
+Verificar *secret* do *namespace* **labwordpress**.
+```sh
+kubectl get secret -n labwordpress
+```
