@@ -53,3 +53,14 @@ Verificar *secret* do *namespace* **labwordpress**.
 ```sh
 kubectl get secret -n labwordpress
 ```
+Aplicar arquivos de *PersistentVolumeClaim* (PVC).
+```sh
+kubectl apply -f persistent-volumes-claim/mysql-pvc.yaml
+```
+```sh
+kubectl apply -f persistent-volumes-claim/wordpress-pvc.yaml
+```
+Verificar a criação dos PVCs.
+```sh
+kubectl get pvc -n labwordpress
+```
