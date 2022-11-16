@@ -11,7 +11,7 @@ Documentação referente a aplicação das tecnologias WordPress e MySQL utiliza
 Este tópico apresenta os estágios a ser seguidos para implementação.  
 Aplicar arquivo para criação do *namespace*.
 ```sh
-kubectl apply -f namespace.yml
+kubectl apply -f namespace.yaml
 ```
 O estágio anterior pode ser substituído pelo comando abaixo.
 ```sh
@@ -23,10 +23,10 @@ kubectl get namespace
 ```
 Aplicar arquivos de criação dos *services*.
 ```sh
-kubectl apply -f services/mysql-service.yml
+kubectl apply -f services/mysql-svc.yaml
 ```
 ```sh
-kubectl apply -f services/wordpress-service.yml
+kubectl apply -f services/wordpress-svc.yaml
 ```
 Listar *services* do *namespace* **labwordpress**.
 ```sh
