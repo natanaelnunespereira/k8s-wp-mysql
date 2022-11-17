@@ -9,3 +9,5 @@ spec:
   ports:
     - port: 3308
       targetPort: 3308
+  selector:
+    app: mysql
