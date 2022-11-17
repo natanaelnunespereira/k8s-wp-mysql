@@ -36,7 +36,7 @@ spec:
             - name: MYSQL_DATABASE
               value: wordpress
           ports:
-            - containerPort: 3306
+            - containerPort: 3308
               name: mysql
           volumeMounts:
             - mountPath: /var/lib/mysql
