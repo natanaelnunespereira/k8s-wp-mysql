@@ -30,4 +30,12 @@ spec:
                   key: mysql-password
           ports:
             - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysql-persistent-storage-lab
+      volumes:
+        - name: mysql-persistent-storage-lab
+          persistentVolumeClaim:
+            claimName: mysql-pvc
   replicas: 1
