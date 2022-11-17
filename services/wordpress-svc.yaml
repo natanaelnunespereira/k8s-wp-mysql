@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: wordpress-svc
   namespace: labwordpress
+  labels:
+    app: wordpress
 spec:
   ports:
     - port: 80

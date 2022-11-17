@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: mysql-svc
   namespace: labwordpress
+  labels:
+    app: mysql
 spec:
   ports:
     - port: 3308
