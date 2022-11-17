@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: mysql
   namespace: labwordpress
+  labels:
+    app: wordpress
 spec:
   selector:
     
