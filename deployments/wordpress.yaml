@@ -3,9 +3,28 @@ kind: Deployment
 metadata:
   name: wordpress
   namespace: labwordpress
+  labels:
+    app: wordpress
 spec:
   selector:
-    
+    matchLabels:
+      app: wordpress
   template:
-    
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+        - name: wordpress
+          image: wordpress:6.0.2
+          ports:
+            - containerPort: 80
+              name: wordpress
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: wordpress-persistent-storage-lab
+      volumes:
+        - name: wordpress-persistent-storage-lab
+          persistentVolumeClaim:
+            claimName: wordpress-pvc
   replicas: 1
