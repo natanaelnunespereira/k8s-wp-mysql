@@ -19,7 +19,7 @@ spec:
           image: wordpress:6.0.2
           env:
             - name: WORDPRESS_DB_HOST
-              value: mysql
+              value: mysql-svc
             - name: WORDPRESS_DB_USER
               valueFrom:
                 secretKeyRef:
