@@ -32,7 +32,7 @@ kubectl apply -f services/wordpress-svc.yaml
 ```
 Listar *services* do *namespace* **labwordpress**.
 ```sh
-kubectl get service -n labwordpress
+kubectl get svc -n labwordpress
 ```
 Modelo do arquivo secret.yaml.
 ```yaml
@@ -65,4 +65,19 @@ kubectl apply -f volumes/wordpress-pvc.yaml
 Verificar a criação dos PVCs do *namespace* **labwordpress**.
 ```sh
 kubectl get pvc -n labwordpress
+```
+Aplicar arquivos de *deployment*.
+```sh
+ kubectl apply -f deployments/mysql.yaml
+```
+```sh
+kubectl apply -f deployments/wordpress.yaml
+```
+Verificar *deployments* do *namespace* **labwordpress**.
+```sh
+kubectl get deployment -n labwordpress
+```
+Listar recursos do *namespace* **labwordpress**.
+```sh
+kubectl get all -n labwordpress
 ```
