@@ -47,7 +47,7 @@ data:
 ```
 Aplicar arquivo *secret*.
 ```sh
-kubectl apply -f secret.yaml
+kubectl apply -f secrets/secret.yaml
 ```
 Verificar *secret* do *namespace* **labwordpress**.
 ```sh
@@ -55,10 +55,10 @@ kubectl get secret -n labwordpress
 ```
 Aplicar arquivos de *PersistentVolumeClaim* (PVC).
 ```sh
-kubectl apply -f persistent-volumes-claim/mysql-pvc.yaml
+kubectl apply -f volumes/mysql-pvc.yaml
 ```
 ```sh
-kubectl apply -f persistent-volumes-claim/wordpress-pvc.yaml
+kubectl apply -f volumes/wordpress-pvc.yaml
 ```
 Verificar a criação dos PVCs do *namespace* **labwordpress**.
 ```sh
