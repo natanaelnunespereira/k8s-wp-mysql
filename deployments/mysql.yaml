@@ -7,7 +7,27 @@ metadata:
     app: wordpress
 spec:
   selector:
-    
+    matchLabels:
+      app: mysql
   template:
-    
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0.31
+          env:
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-user
+                  key: mysql-user
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-password
+                  key: mysql-password
+          ports:
+            - containerPort: 3306
   replicas: 1
