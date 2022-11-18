@@ -12,7 +12,7 @@ Documentação referente a aplicação das tecnologias WordPress e MySQL utiliza
 ## Estrutura
 Este tópico apresenta a descrição da estrutura do projeto.  
 - [Namespace](namespace.yaml): fornecer isolamento de recursos para o `labwordpress`.
-- [Services](/services): expor a comunicação do cluster (`ClusterIP, NodePort ou LoadBalancer`).
+- [Services](/services): expor a comunicação do cluster (`ClusterIP`, `NodePort` ou `LoadBalancer`).
 - [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/): contém dados confidenciais, por esse motivo não pode ser exposto neste repositório.
 - [Volumes](/volumes): armazenar arquivos dos *containers*.
 - [Deployments](/deployments): representar uma aplicação que será executada no *cluster*, podendo alterar a quantidade de réplicas simultâneas.  
