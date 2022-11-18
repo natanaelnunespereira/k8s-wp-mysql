@@ -83,7 +83,11 @@ kubectl get all -n labwordpress
 ```
 
 ### Acesso
-Container MySQL.
+*Container*.
 ```sh
-kubectl exec -it pod/<pod-name> -n labwordpress -- /bin/bash
+kubectl exec -it <pod-name> -n labwordpress -- /bin/bash
+```
+Verificar *logs*.
+```sh
+kubectl logs -f <pod-name> -n labwordpress
 ```
