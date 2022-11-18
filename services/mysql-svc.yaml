@@ -4,10 +4,11 @@ metadata:
   name: mysql-svc
   namespace: labwordpress
   labels:
-    app: mysql
+    app: wordpress
 spec:
   ports:
     - port: 3308
       targetPort: 3308
   selector:
-    app: mysql
+    app: wordpress
+    tier: mysql
