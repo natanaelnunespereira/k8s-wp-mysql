@@ -12,7 +12,7 @@ spec:
         paths:
           - backend:
               service:
-                name: wordpress
+                name: wordpress-svc
                 port:
                   number: 80
-            pathType: Prefix
+            pathType: Exact
