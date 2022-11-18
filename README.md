@@ -76,7 +76,7 @@ kubectl get pvc -n labwordpress
 ```
 - Aplicar arquivos de *deployment*.
 ```sh
- kubectl apply -f deployments/mysql.yaml
+kubectl apply -f deployments/mysql.yaml
 ```
 ```sh
 kubectl apply -f deployments/wordpress.yaml
