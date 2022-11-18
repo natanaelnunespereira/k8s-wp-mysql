@@ -5,14 +5,16 @@ metadata:
   namespace: labwordpress
   labels:
     app: wordpress
+    tier: front
 spec:
   rules:
     - host: wordpress.compass.com
     - http:
         paths:
-          - backend:
+          - path: /
+            pathType: Exact
+            backend:
               service:
                 name: wordpress-svc
                 port:
                   number: 80
-            pathType: Exact
