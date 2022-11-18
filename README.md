@@ -81,3 +81,9 @@ Listar recursos do *namespace* **labwordpress**.
 ```sh
 kubectl get all -n labwordpress
 ```
+
+### Acesso
+Container MySQL.
+```sh
+kubectl exec -it pod/<pod-name> -n labwordpress -- /bin/bash
+```
