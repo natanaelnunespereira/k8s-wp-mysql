@@ -9,10 +9,12 @@ spec:
   selector:
     matchLabels:
       app: wordpress
+      tier: front
   template:
     metadata:
       labels:
         app: wordpress
+        tier: front
     spec:
       containers:
         - name: wordpress
