@@ -4,20 +4,22 @@ metadata:
   name: wp-mysql
   namespace: labwordpress
   labels:
-    app: wp-mysql
+    app: wordpress
 spec:
   selector:
     matchLabels:
-      app: wp-mysql
+      app: wordpress
+      tier: mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wp-mysql
+        app: wordpress
+        tier: mysql
     spec:
       containers:
-        - name: wp-mysql
+        - name: mysql
           image: mysql:8.0.31
           env:
             - name: MYSQL_ROOT_PASSWORD
@@ -38,8 +40,8 @@ spec:
             - name: MYSQL_DATABASE
               value: wordpress
           ports:
-            - containerPort: 3306
-              name: wp-mysql
+            - containerPort: 3308
+              name: mysql
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: mysql-persistent-storage-lab
