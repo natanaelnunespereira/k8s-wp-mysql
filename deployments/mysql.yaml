@@ -3,48 +3,45 @@ kind: Deployment
 metadata:
   name: wp-mysql
   namespace: labwordpress
-  labels:
-    app: wordpress
 spec:
   selector:
     matchLabels:
-      app: wordpress
-      tier: mysql
+      app: wp-mysql
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
-        tier: mysql
+        app: wp-mysql
     spec:
       containers:
-        - name: mysql
-          image: mysql:8.0.31
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: mysql-root-password
-            - name: MYSQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: mysql-user
-            - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: mysql-password
-            - name: MYSQL_DATABASE
-              value: wordpress
-          ports:
-            - containerPort: 3308
-              name: mysql
-          volumeMounts:
-            - mountPath: /var/lib/mysql
-              name: mysql-persistent-storage-lab
-      volumes:
+      - image: mysql:8.0.31
+        name: wp-mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql_root_password
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql_user
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql_password
+        - name: MYSQL_DATABASE
+          value: wordpress
+        ports:
+        - containerPort: 3306
+          name: wp-mysql
+        volumeMounts:
         - name: mysql-persistent-storage-lab
-          persistentVolumeClaim:
-            claimName: mysql-pvc
-  replicas: 1
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage-lab
+        persistentVolumeClaim:
+          claimName: mysql-pvc

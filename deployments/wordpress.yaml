@@ -2,14 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
-  namespace: labwordpress
   labels:
     app: wordpress
+  namespace: labwordpress
 spec:
   selector:
     matchLabels:
       app: wordpress
       tier: front
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -17,31 +19,30 @@ spec:
         tier: front
     spec:
       containers:
-        - name: wordpress
-          image: wordpress:6.0.2
-          env:
-            - name: WORDPRESS_DB_HOST
-              value: mysql-svc
-            - name: WORDPRESS_DB_USER
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: mysql-user
-            - name: WORDPRESS_DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: mysql-password
-            - name: WORDPRESS_DB_NAME
-              value: wordpress
-          ports:
-            - containerPort: 80
-              name: wordpress
-          volumeMounts:
-            - mountPath: /var/www/html
-              name: wordpress-persistent-storage-lab
-      volumes:
+      - image: wordpress:6.0.2
+        name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: wp-mysql
+        - name: WORDPRESS_DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql_user
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql_password
+        - name: WORDPRESS_DB_NAME
+          value: wordpress
+        ports:
+        - containerPort: 80
+          name: wordpress
+        volumeMounts:
         - name: wordpress-persistent-storage-lab
-          persistentVolumeClaim:
-            claimName: wordpress-pvc
-  replicas: 1
+          mountPath: /var/www/html
+      volumes:
+      - name: wordpress-persistent-storage-lab
+        persistentVolumeClaim:
+          claimName: wordpress-pvc

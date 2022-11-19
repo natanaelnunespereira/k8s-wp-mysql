@@ -1,15 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress-svc
-  namespace: labwordpress
+  name: wordpress
   labels:
     app: wordpress
+  namespace: labwordpress
 spec:
   ports:
     - port: 80
-      protocol: TCP
-      targetPort: 80
   selector:
     app: wordpress
     tier: front

@@ -7,7 +7,7 @@ metadata:
     app: mysql
 spec:
   accessModes:
-    - "ReadWriteOnce"
+    - ReadWriteOnce
   resources:
     requests:
       storage: 3Gi
