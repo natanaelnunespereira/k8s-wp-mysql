@@ -47,3 +47,4 @@ spec:
         - name: wordpress-persistent-storage-lab
           persistentVolumeClaim:
             claimName: wordpress-pvc
+  replicas: 1
