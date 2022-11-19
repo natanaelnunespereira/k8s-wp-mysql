@@ -3,11 +3,12 @@ kind: Service
 metadata:
   name: wp-mysql
   namespace: labwordpress
+  labels:
+    app: wp-mysql
 spec:
   ports:
-  - protocol: TCP
-    port: 3306
-    targetPort: 3306
+    - port: 3306
+      protocol: TCP
+      targetPort: 3306
   selector:
     app: wp-mysql
-  #clusterIP: Nome

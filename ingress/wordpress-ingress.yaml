@@ -11,10 +11,9 @@ spec:
     - host: wordpress.compass.com
     - http:
         paths:
-          - path: /
-            pathType: Exact
-            backend:
+          - backend:
               service:
                 name: wordpress-svc
                 port:
                   number: 80
+            pathType: Exact

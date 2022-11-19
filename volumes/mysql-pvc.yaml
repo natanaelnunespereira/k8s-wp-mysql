@@ -4,10 +4,10 @@ metadata:
   name: mysql-pvc
   namespace: labwordpress
   labels:
-    app: mysql
+    app: wp-mysql
 spec:
   accessModes:
-    - ReadWriteOnce
+    - "ReadWriteOnce"
   resources:
     requests:
       storage: 3Gi
