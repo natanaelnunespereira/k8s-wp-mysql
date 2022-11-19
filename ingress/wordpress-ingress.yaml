@@ -7,13 +7,15 @@ metadata:
     app: wordpress
     tier: front
 spec:
+  ingressClassName: nginx
   rules:
     - host: wordpress.compass.com
     - http:
         paths:
-          - backend:
+          - path: /
+            backend:
               service:
-                name: wordpress-svc
+                name: wordpress
                 port:
                   number: 80
             pathType: Exact
