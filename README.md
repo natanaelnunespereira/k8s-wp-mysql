@@ -11,7 +11,7 @@ Documentação referente a aplicação das tecnologias WordPress e MySQL utiliza
 
 ## Estrutura
 Este tópico apresenta a descrição da estrutura do projeto.  
-- [Namespace](namespace.yaml): fornecer isolamento de recursos para o `labwordpress`.
+- [Namespace](/namespace/namespace.yaml): fornecer isolamento de recursos para o `labwordpress`.
 - [Services](/services): expor a comunicação do cluster (`ClusterIP`, `NodePort` ou `LoadBalancer`).
 - [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/): contém dados confidenciais, por esse motivo não pode ser exposto neste repositório.
 - [Volumes](/volumes): armazenar arquivos dos *containers*.
@@ -21,7 +21,7 @@ Este tópico apresenta a descrição da estrutura do projeto.
 Este tópico apresenta os estágios a serem seguidos para implementação.  
 - Aplicar arquivo para criação do *namespace*.
 ```sh
-kubectl apply -f namespace.yaml
+kubectl apply -f namespace/namespace.yaml
 ```
 - O estágio anterior pode ser substituído pelo comando abaixo.
 ```sh
