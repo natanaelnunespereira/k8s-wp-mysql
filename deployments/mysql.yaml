@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: wp-mysql
   namespace: labwordpress
+  labels:
+    app: wp-mysql
 spec:
   selector:
     matchLabels:
@@ -45,3 +47,4 @@ spec:
         - name: mysql-persistent-storage-lab
           persistentVolumeClaim:
             claimName: mysql-pvc
+  replicas: 1
