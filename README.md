@@ -85,6 +85,14 @@ kubectl apply -f deployments/wordpress.yaml
 ```sh
 kubectl get deployment -n labwordpress
 ```
+- Aplicar arquivo do *ingress*.
+```sh
+kubectl apply -f ingress/wordpress-ingress.yaml
+```
+- Verificar *ingress* do *namespace* **labwordpress**.
+```sh
+kubectl get ingress -n labwordpress
+```
 - Listar recursos do *namespace* **labwordpress**.
 ```sh
 kubectl get all -n labwordpress
@@ -98,4 +106,8 @@ kubectl exec -it <pod-name> -n labwordpress -- /bin/bash
 - Verificar *logs*.
 ```sh
 kubectl logs -f <pod-name> -n labwordpress
+```
+- Diretório dos volumes.
+```sh
+\\wsl$\docker-desktop-data\data\k8s-pvs
 ```
