@@ -11,7 +11,7 @@ spec:
       app: wordpress
       tier: mysql
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:

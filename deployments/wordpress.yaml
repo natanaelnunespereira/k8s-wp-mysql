@@ -12,7 +12,7 @@ spec:
       app: wordpress
       tier: front
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:
