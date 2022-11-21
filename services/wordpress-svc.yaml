@@ -13,4 +13,4 @@ spec:
   selector:
     app: wordpress
     tier: front
-  type: LoadBalancer
+  type: ClusterIP
