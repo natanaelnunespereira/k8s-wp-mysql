@@ -85,6 +85,14 @@ kubectl apply -f deployments/wordpress.yaml
 ```sh
 kubectl get deployment -n labwordpress
 ```
+- Aplicar arquivo de ingress-controller baseado no nginx.
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
+```
+- Verificar *pods* do *ingress*.
+```sh
+kubectl get pods -n ingress-nginx
+```
 - Aplicar arquivo do *ingress*.
 ```sh
 kubectl apply -f ingress/wordpress-ingress.yaml
