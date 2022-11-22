@@ -108,14 +108,18 @@ kubectl get all -n labwordpress
 ```
 
 ### Acesso
-- Alterar arquivo *hosts* adicionando linha contendo o IP do host e o host adicionado do Ingress.
+- Alterar arquivo *hosts* adicionando linha contendo o IP do *host* e o domínio do *host* adicionado no *ingress*.
 ```sh
 C:\Windows\System32\drivers\etc\hosts
 ```
 ```sh
 127.0.0.1    wordpress.compass.com
 ```
-- Url *browser*: [wordpress.compass.com](http://wordpress.compass.com)
+- URL *browser*: [wordpress.compass.com](http://wordpress.compass.com)
+- Diretório dos volumes.
+```sh
+\\wsl$\docker-desktop-data\data\k8s-pvs
+```
 - *Container*.
 ```sh
 kubectl exec -it <pod-name> -n labwordpress -- /bin/bash
@@ -124,8 +128,3 @@ kubectl exec -it <pod-name> -n labwordpress -- /bin/bash
 ```sh
 kubectl logs -f <pod-name> -n labwordpress
 ```
-- Diretório dos volumes.
-```sh
-\\wsl$\docker-desktop-data\data\k8s-pvs
-```
-
